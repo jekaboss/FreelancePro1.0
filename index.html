@@ -20,7 +20,7 @@
         
       </div>
       <div class="theme-lang-toggle">
-        <a href="#login" class="login-btn" data-i18n="login">Log In</a>
+        <a class="login-btn" onclick="openModal()" data-i18n="login">Log In</a>
         <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
         <button class="lang-toggle" onclick="toggleLangMenu()">🌐</button>
         <div class="lang-menu">
@@ -33,6 +33,28 @@
     </div>
   </nav>
 
+  <!-- Модальне вікно -->
+  <div class="modal" id="authModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-tabs">
+        <div class="modal-tab active" onclick="showTab('login')" data-i18n="loginModalTitle">Login</div>
+        <div class="modal-tab" onclick="showTab('register')" data-i18n="registerModalTitle">Register</div>
+      </div>
+      <div class="modal-tab-content active" id="login">
+        <input type="email" placeholder="Email" data-i18n-placeholder="emailPlaceholder">
+        <input type="password" placeholder="Password" data-i18n-placeholder="passwordPlaceholder">
+        <button onclick="handleLogin()" data-i18n="loginButton">Log In</button>
+      </div>
+      <div class="modal-tab-content" id="register">
+        <input type="text" placeholder="Username" data-i18n-placeholder="usernamePlaceholder">
+        <input type="email" placeholder="Email" data-i18n-placeholder="emailPlaceholder">
+        <input type="password" placeholder="Password" data-i18n-placeholder="passwordPlaceholder">
+        <button onclick="handleRegister()" data-i18n="registerButton">Register</button>
+      </div>
+    </div>
+  </div>
+
   <section class="hero">
     <div class="hero-content">
       <h1 data-i18n="heroTitle">Find a freelancer or your dream job</h1>
@@ -42,6 +64,28 @@
       <div class="cta-buttons">
         <a href="#post-project" class="cta-button" data-i18n="postProject">Post a Task</a>
         <a href="#become-freelancer" class="cta-button secondary" data-i18n="becomeFreelancer">Become a Freelancer</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <h2 data-i18n="howItWorksTitle">How It Works</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <h3 data-i18n="step1Title">Registration</h3>
+        <p data-i18n="step1Desc">Create an account as a client or freelancer.</p>
+      </div>
+      <div class="step">
+        <h3 data-i18n="step2Title">Project Posting</h3>
+        <p data-i18n="step2Desc">Describe the task and set the budget.</p>
+      </div>
+      <div class="step">
+        <h3 data-i18n="step3Title">Selecting a Performer</h3>
+        <p data-i18n="step3Desc">Choose the best offer from freelancers.</p>
+      </div>
+      <div class="step">
+        <h3 data-i18n="step4Title">Execution and Payment</h3>
+        <p data-i18n="step4Desc">Get the result and pay for the work.</p>
       </div>
     </div>
   </section>
@@ -98,27 +142,7 @@
     </div>
   </section>
 
-  <section class="how-it-works" id="how-it-works">
-    <h2 data-i18n="howItWorksTitle">How It Works</h2>
-    <div class="steps-grid">
-      <div class="step">
-        <h3 data-i18n="step1Title">Registration</h3>
-        <p data-i18n="step1Desc">Create an account as a client or freelancer.</p>
-      </div>
-      <div class="step">
-        <h3 data-i18n="step2Title">Project Posting</h3>
-        <p data-i18n="step2Desc">Describe the task and set the budget.</p>
-      </div>
-      <div class="step">
-        <h3 data-i18n="step3Title">Selecting a Performer</h3>
-        <p data-i18n="step3Desc">Choose the best offer from freelancers.</p>
-      </div>
-      <div class="step">
-        <h3 data-i18n="step4Title">Execution and Payment</h3>
-        <p data-i18n="step4Desc">Get the result and pay for the work.</p>
-      </div>
-    </div>
-  </section>
+  
 
   <section class="testimonials">
     <h2 data-i18n="testimonialsTitle">Client Testimonials</h2>

@@ -5,6 +5,13 @@ const translations = {
     freelancers: "Фрилансери",
     howItWorks: "Як це працює",
     login: "Увійти",
+    loginModalTitle: "Вхід",
+    registerModalTitle: "Реєстрація",
+    emailPlaceholder: "Електронна пошта",
+    passwordPlaceholder: "Пароль",
+    usernamePlaceholder: "Ім'я користувача",
+    loginButton: "Увійти",
+    registerButton: "Зареєструватися",
     heroTitle: "Знайди фрилансера або роботу своєї мрії",
     heroSubtitle: "Тисячі проектів і спеціалістів у різних сферах для вашого успіху. Приєднуйся зараз і почни заробляти або знаходити таланти!",
     postProject: "Розмістити завдання",
@@ -65,6 +72,13 @@ const translations = {
     freelancers: "Фрилансеры",
     howItWorks: "Как это работает",
     login: "Войти",
+    loginModalTitle: "Вход",
+    registerModalTitle: "Регистрация",
+    emailPlaceholder: "Электронная почта",
+    passwordPlaceholder: "Пароль",
+    usernamePlaceholder: "Имя пользователя",
+    loginButton: "Войти",
+    registerButton: "Зарегистрироваться",
     heroTitle: "Найди фрилансера или работу своей мечты",
     heroSubtitle: "Тысячи проектов и специалистов в разных сферах для вашего успеха. Присоединяйся сейчас и начни зарабатывать или находить таланты!",
     postProject: "Разместить задание",
@@ -117,7 +131,7 @@ const translations = {
     footerTerms: "Условия использования",
     footerSupport: "Поддержка",
     footerPrivacy: "Политика конфиденциальности",
-    footerCopyright: " 2025 FreelancePro. Все права защищены."
+    footerCopyright: "2025 FreelancePro. Все права защищены."
   },
   en: {
     logo: "FreelancePro",
@@ -125,6 +139,13 @@ const translations = {
     freelancers: "Freelancers",
     howItWorks: "How It Works",
     login: "Log In",
+    loginModalTitle: "Login",
+    registerModalTitle: "Register",
+    emailPlaceholder: "Email",
+    passwordPlaceholder: "Password",
+    usernamePlaceholder: "Username",
+    loginButton: "Log In",
+    registerButton: "Register",
     heroTitle: "Find a freelancer or your dream job",
     heroSubtitle: "Thousands of projects and professionals in various fields for your success. Join now and start earning or finding talents!",
     postProject: "Post a Task",
@@ -190,6 +211,10 @@ function changeLanguage(lang) {
       element.textContent = translations[lang][key];
     }
   });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+    const key = element.getAttribute('data-i18n-placeholder');
+    element.placeholder = translations[lang][key];
+  });
   document.documentElement.lang = lang;
   localStorage.setItem('language', lang);
   toggleLangMenu();
@@ -218,6 +243,32 @@ function toggleNav() {
   burgerMenu.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
 }
 
+function openModal() {
+  document.getElementById('authModal').classList.add('active');
+  showTab('login'); // Відкриваємо вкладку "Вхід" за замовчуванням
+}
+
+function closeModal() {
+  document.getElementById('authModal').classList.remove('active');
+}
+
+function showTab(tab) {
+  document.querySelectorAll('.modal-tab').forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.modal-tab-content').forEach(content => content.classList.remove('active'));
+  document.querySelector(`.modal-tab[onclick="showTab('${tab}')"]`).classList.add('active');
+  document.getElementById(tab).classList.add('active');
+}
+
+function handleLogin() {
+  console.log('Обробка входу');
+  // Тут можна додати логіку для обробки входу
+}
+
+function handleRegister() {
+  console.log('Обробка реєстрації');
+  // Тут можна додати логіку для обробки реєстрації
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme') || 'light';
   const savedLang = localStorage.getItem('language') || 'en';
@@ -232,6 +283,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const langToggles = document.querySelectorAll('.lang-toggle');
     const navLinks = document.querySelector('.nav-links');
     const burgerMenu = document.querySelector('.burger-menu');
+    const modal = document.getElementById('authModal');
+    const modalContent = document.querySelector('.modal-content');
 
     let isLangToggleClicked = false;
     langToggles.forEach(toggle => {
@@ -249,6 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!navLinks.contains(event.target) && !burgerMenu.contains(event.target) && navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
       burgerMenu.textContent = '☰';
+    }
+
+    if (modal.classList.contains('active') && !modalContent.contains(event.target) && !event.target.classList.contains('login-btn')) {
+      closeModal();
     }
   });
 });
