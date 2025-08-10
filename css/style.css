@@ -1,10 +1,12 @@
+
+
 :root {
   --bg-color: #f5f5f5;
   --text-color: #333;
-  --primary-color: #0288d1;/* Змінено з зеленого на синій */
-  --primary-hover: #01579b;/* Змінено з темно-зеленого на темно-синій */
+  --primary-color: #0288d1;
+  --primary-hover: #01579b;
   --nav-bg: #fff;
-  --hero-bg: linear-gradient(135deg, #caced0 0%, #b5b8ba 100%);/* Змінено градієнт на синій */
+  --hero-bg: linear-gradient(135deg, #caced0 0%, #b5b8ba 100%); /* Змінено градієнт на синій */
   --card-bg: #f5f5f5;
   --footer-bg: #263238;
   --footer-text: #80cbc4;
@@ -15,7 +17,7 @@
   --bg-color: #121212;
   --text-color: #e0e0e0;
   --nav-bg: #1e1e1e;
-  --hero-bg: linear-gradient(135deg, #484b4c 0%, #363d42 100%);/* Змінено градієнт на синій */
+  --hero-bg: linear-gradient(135deg, #484b4c 0%, #363d42 100%); /* Змінено градієнт на синій */
   --card-bg: #1e1e1e;
   --footer-bg: #0d1a26;
   --footer-text: #4fc3f7;
@@ -57,6 +59,23 @@ nav {
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.logo-text {
+  color: #000; /* Чорний для світлої теми */
+}
+
+[data-theme="dark"] .logo-text {
+  color: #fff; /* Білий для темної теми */
 }
 
 .nav-links {
@@ -76,10 +95,10 @@ nav {
   color: var(--primary-color);
 }
 
-.nav-links .login-btn {
+.theme-lang-toggle .login-btn {
   background-color: var(--primary-color);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 12px 10px;
   border-radius: 5px;
 }
 
@@ -90,7 +109,6 @@ nav {
 .theme-lang-toggle {
   display: flex;
   gap: 1rem;
-  margin-left: 1.5rem;
   position: relative;
 }
 
@@ -447,6 +465,36 @@ footer .social-links a {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    flex: 1;
+  }
+
+  .logo-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .burger-menu {
+    display: block;
+    font-size: 1.5rem;
+    order: 3;
+  }
+
+  .theme-lang-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 0;
+    order: 2;
+  }
+
+  .theme-toggle,
+  .lang-toggle {
+    font-size: 1.2rem;
+    padding: 0.3rem;
   }
 
   .nav-links {
@@ -460,6 +508,7 @@ footer .social-links a {
     left: 0;
     padding: 1rem;
     box-shadow: var(--shadow);
+    z-index: 999;
   }
 
   .nav-links.active {
@@ -472,14 +521,15 @@ footer .social-links a {
     text-align: center;
   }
 
-  .theme-lang-toggle {
-    margin-left: 0;
-    /* margin-top: 1rem; */
-    margin-left: 75px;
+  .nav-links .theme-lang-toggle {
+    display: none;
+    /* Приховуємо theme-lang-toggle у меню на мобільних */
   }
 
-  .burger-menu {
-    display: block;
+  .lang-menu {
+    right: 50%;
+    transform: translateX(50%);
+    width: 150px;
   }
 
   .hero {
@@ -511,20 +561,25 @@ footer .social-links a {
   .stats h2 {
     font-size: 2rem;
   }
-
-  .lang-menu {
-    right: 50%;
-    transform: translateX(50%);
-  }
 }
 
 @media (max-width: 480px) {
   .logo {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
   }
 
   .nav-links a {
     font-size: 0.9rem;
+  }
+
+  .theme-toggle,
+  .lang-toggle {
+    font-size: 1rem;
   }
 
   .hero-content h1 {
@@ -534,6 +589,4 @@ footer .social-links a {
   .hero-content p {
     font-size: 1rem;
   }
-
 }
-

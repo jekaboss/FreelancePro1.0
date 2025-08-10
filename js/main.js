@@ -184,23 +184,31 @@ const translations = {
 function changeLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
-    element.textContent = translations[lang][key];
+    if (key === 'logo') {
+      element.innerHTML = `<img src="img/logo.png" class="logo-icon" alt="FreelancePro Logo"><span class="logo-text">${translations[lang][key]}</span>`;
+    } else {
+      element.textContent = translations[lang][key];
+    }
   });
   document.documentElement.lang = lang;
   localStorage.setItem('language', lang);
-  toggleLangMenu(); // Закрити меню після вибору мови
+  toggleLangMenu();
 }
 
 function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', currentTheme);
   localStorage.setItem('theme', currentTheme);
-  document.querySelector('.theme-toggle').textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+  document.querySelectorAll('.theme-toggle').forEach(button => {
+    button.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+  });
 }
 
 function toggleLangMenu() {
-  const langMenu = document.querySelector('.lang-menu');
-  langMenu.classList.toggle('active');
+  const langMenus = document.querySelectorAll('.lang-menu');
+  langMenus.forEach(menu => {
+    menu.classList.toggle('active');
+  });
 }
 
 function toggleNav() {
@@ -210,24 +218,33 @@ function toggleNav() {
   burgerMenu.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
 }
 
-// Ініціалізація теми та мови
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme') || 'light';
   const savedLang = localStorage.getItem('language') || 'en';
   document.documentElement.setAttribute('data-theme', savedTheme);
-  document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  document.querySelectorAll('.theme-toggle').forEach(button => {
+    button.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  });
   changeLanguage(savedLang);
 
-  // Закриття меню при кліку поза ним
   document.addEventListener('click', (event) => {
-    const langMenu = document.querySelector('.lang-menu');
-    const langToggle = document.querySelector('.lang-toggle');
+    const langMenus = document.querySelectorAll('.lang-menu');
+    const langToggles = document.querySelectorAll('.lang-toggle');
     const navLinks = document.querySelector('.nav-links');
     const burgerMenu = document.querySelector('.burger-menu');
 
-    if (!langMenu.contains(event.target) && !langToggle.contains(event.target)) {
-      langMenu.classList.remove('active');
-    }
+    let isLangToggleClicked = false;
+    langToggles.forEach(toggle => {
+      if (toggle.contains(event.target)) {
+        isLangToggleClicked = true;
+      }
+    });
+
+    langMenus.forEach(menu => {
+      if (!menu.contains(event.target) && !isLangToggleClicked) {
+        menu.classList.remove('active');
+      }
+    });
 
     if (!navLinks.contains(event.target) && !burgerMenu.contains(event.target) && navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
