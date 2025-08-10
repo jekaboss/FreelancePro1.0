@@ -1,10 +1,10 @@
 :root {
   --bg-color: #f5f5f5;
   --text-color: #333;
-  --primary-color: #fff;
-  --primary-hover: #1b5e20;
+  --primary-color: #0288d1;/* Змінено з зеленого на синій */
+  --primary-hover: #01579b;/* Змінено з темно-зеленого на темно-синій */
   --nav-bg: #fff;
-  --hero-bg: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  --hero-bg: linear-gradient(135deg, #caced0 0%, #b5b8ba 100%);/* Змінено градієнт на синій */
   --card-bg: #f5f5f5;
   --footer-bg: #263238;
   --footer-text: #80cbc4;
@@ -15,7 +15,7 @@
   --bg-color: #121212;
   --text-color: #e0e0e0;
   --nav-bg: #1e1e1e;
-  --hero-bg: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+  --hero-bg: linear-gradient(135deg, #484b4c 0%, #363d42 100%);/* Змінено градієнт на синій */
   --card-bg: #1e1e1e;
   --footer-bg: #0d1a26;
   --footer-text: #4fc3f7;
@@ -78,7 +78,7 @@ nav {
 
 .nav-links .login-btn {
   background-color: var(--primary-color);
-  color: #333;
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 5px;
 }
@@ -192,7 +192,7 @@ nav {
 
 .cta-button {
   background-color: var(--primary-color);
-  color: #333;
+  color: white;
   padding: 1.2rem 2rem;
   border-radius: 8px;
   text-decoration: none;
