@@ -469,7 +469,7 @@ footer .social-links a {
   .nav-links a {
     margin: 0.5rem 0;
     width: 100%;
-    text-align: left;
+    text-align: center;
   }
 
   .theme-lang-toggle {
@@ -533,4 +533,5 @@ footer .social-links a {
   .hero-content p {
     font-size: 1rem;
   }
+
 }
