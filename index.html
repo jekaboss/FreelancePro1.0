@@ -12,16 +12,20 @@
 <body>
   <nav>
     <div class="nav-container">
-      <div class="logo" data-i18n="logo"><img src="img/logo.png" class="logo-icon" alt="FreelancePro Logo"><span class="logo-text">FreelancePro</span></div>
+      <div class="logo" data-i18n="logo"><img src="img/logo.png" class="logo-icon" alt="FreelancePro Logo"><span
+          class="logo-text">FreelancePro</span></div>
       <div class="nav-links">
         <a href="#projects" data-i18n="projects">Projects</a>
         <a href="#freelancers" data-i18n="freelancers">Freelancers</a>
         <a href="#how-it-works" data-i18n="howItWorks">How It Works</a>
-        
+
       </div>
-      <div class="theme-lang-toggle">
+      <div class="theme-lang-toggle desktop-only">
         <a class="login-btn" onclick="openModal()" data-i18n="login">Log In</a>
-        <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        <div class="theme-switch">
+          <input type="checkbox" id="theme-toggle-desktop" onchange="toggleTheme()">
+          <label for="theme-toggle-desktop" class="slider"></label>
+        </div>
         <button class="lang-toggle" onclick="toggleLangMenu()">🌐</button>
         <div class="lang-menu">
           <button onclick="changeLanguage('uk')"><span>🇺🇦</span> УКР</button>
@@ -142,7 +146,7 @@
     </div>
   </section>
 
-  
+
 
   <section class="testimonials">
     <h2 data-i18n="testimonialsTitle">Client Testimonials</h2>
