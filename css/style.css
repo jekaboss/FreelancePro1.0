@@ -389,7 +389,7 @@ input:checked+.slider:before {
 /* Секція категорій */
 .categories {
   max-width: 1200px;
-  /* margin: 4rem auto; */
+  margin: 0rem auto;
   padding: 2rem;
 }
 
@@ -433,7 +433,7 @@ input:checked+.slider:before {
 /* Секція останніх проектів */
 .latest-projects {
   max-width: 1200px;
-  /* margin: 4rem auto; */
+  margin: 0rem auto;
   padding: 2rem;
   background-color: var(--nav-bg);
   border-radius: 10px;
@@ -476,7 +476,7 @@ input:checked+.slider:before {
 /* Секція як це працює */
 .how-it-works {
   max-width: 1200px;
-  /* margin: 4rem auto; */
+  margin: 0rem auto;
   padding: 2rem;
 }
 
