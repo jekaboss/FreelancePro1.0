@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreelancePro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="logo" data-i18n="logo">FreelancePro</div>
+      <button class="burger-menu" onclick="toggleNav()">☰</button>
+      <div class="nav-links">
+        <a href="#projects" data-i18n="projects">Projects</a>
+        <a href="#freelancers" data-i18n="freelancers">Freelancers</a>
+        <a href="#how-it-works" data-i18n="howItWorks">How It Works</a>
+        <a href="#login" class="login-btn" data-i18n="login">Log In</a>
+        <div class="theme-lang-toggle">
+          <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+          <button class="lang-toggle" onclick="toggleLangMenu()">🌐</button>
+          <div class="lang-menu">
+            <button onclick="changeLanguage('uk')"><span>🇺🇦</span> УКР</button>
+            <button onclick="changeLanguage('ru')"><span>🇷🇺</span> РУС</button>
+            <button onclick="changeLanguage('en')"><span>🇬🇧</span> ENG</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 data-i18n="heroTitle">Find a freelancer or your dream job</h1>
+      <p data-i18n="heroSubtitle">Thousands of projects and professionals in various fields for your success. Join now
+        and
+        start earning or finding talents!</p>
+      <div class="cta-buttons">
+        <a href="#post-project" class="cta-button" data-i18n="postProject">Post a Task</a>
+        <a href="#become-freelancer" class="cta-button secondary" data-i18n="becomeFreelancer">Become a Freelancer</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories">
+    <h2 data-i18n="categoriesTitle">Popular Categories</h2>
+    <div class="category-grid">
+      <div class="category-card" onclick="showCategory('programming')">
+        <h3 data-i18n="categoryProgramming">Programming</h3>
+        <p data-i18n="categoryProgrammingDesc">Web, mobile apps, backend</p>
+      </div>
+      <div class="category-card" onclick="showCategory('design')">
+        <h3 data-i18n="categoryDesign">Design</h3>
+        <p data-i18n="categoryDesignDesc">UI/UX, graphics, logos</p>
+      </div>
+      <div class="category-card" onclick="showCategory('marketing')">
+        <h3 data-i18n="categoryMarketing">Marketing</h3>
+        <p data-i18n="categoryMarketingDesc">SEO, SMM, content</p>
+      </div>
+      <div class="category-card" onclick="showCategory('writing')">
+        <h3 data-i18n="categoryWriting">Writing</h3>
+        <p data-i18n="categoryWritingDesc">Copywriting, translations</p>
+      </div>
+      <div class="category-card" onclick="showCategory('video')">
+        <h3 data-i18n="categoryVideo">Video</h3>
+        <p data-i18n="categoryVideoDesc">Editing, animation, filming</p>
+      </div>
+      <div class="category-card" onclick="showCategory('audio')">
+        <h3 data-i18n="categoryAudio">Audio</h3>
+        <p data-i18n="categoryAudioDesc">Recording, music, voiceover</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="latest-projects" id="projects">
+    <h2 data-i18n="latestProjectsTitle">Latest Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3 data-i18n="project1Title">Website Development for Store</h3>
+        <p data-i18n="project1Desc">Need an experienced developer to create an e-commerce platform with payment
+          integration.</p>
+        <div class="budget" data-i18n="project1Budget">Budget: 5000 UAH</div>
+      </div>
+      <div class="project-card">
+        <h3 data-i18n="project2Title">Logo Design for Brand</h3>
+        <p data-i18n="project2Desc">Looking for a creative designer to create a unique logo and brand book.</p>
+        <div class="budget" data-i18n="project2Budget">Budget: 2000 UAH</div>
+      </div>
+      <div class="project-card">
+        <h3 data-i18n="project3Title">SEO Site Optimization</h3>
+        <p data-i18n="project3Desc">Need a specialist to improve site positions in search engines.</p>
+        <div class="budget" data-i18n="project3Budget">Budget: 3000 UAH</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <h2 data-i18n="howItWorksTitle">How It Works</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <h3 data-i18n="step1Title">Registration</h3>
+        <p data-i18n="step1Desc">Create an account as a client or freelancer.</p>
+      </div>
+      <div class="step">
+        <h3 data-i18n="step2Title">Project Posting</h3>
+        <p data-i18n="step2Desc">Describe the task and set the budget.</p>
+      </div>
+      <div class="step">
+        <h3 data-i18n="step3Title">Selecting a Performer</h3>
+        <p data-i18n="step3Desc">Choose the best offer from freelancers.</p>
+      </div>
+      <div class="step">
+        <h3 data-i18n="step4Title">Execution and Payment</h3>
+        <p data-i18n="step4Desc">Get the result and pay for the work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2 data-i18n="testimonialsTitle">Client Testimonials</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p data-i18n="testimonial1">"Great platform! Found an excellent developer in a short time."</p>
+        <div class="author" data-i18n="testimonial1Author">- Ivan Petrenko</div>
+      </div>
+      <div class="testimonial-card">
+        <p data-i18n="testimonial2">"Thanks for the opportunity to earn on my favorite activity. Recommend!"</p>
+        <div class="author" data-i18n="testimonial2Author">- Maria Sydorenko</div>
+      </div>
+      <div class="testimonial-card">
+        <p data-i18n="testimonial3">"Fast support and convenient interface. Everything is top-notch."</p>
+        <div class="author" data-i18n="testimonial3Author">- Oleksiy Koval</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <h2 data-i18n="statsTitle">Why Choose Us</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span>50,000+</span>
+        <p data-i18n="statsProjects">Projects Completed</p>
+      </div>
+      <div class="stat-item">
+        <span>10,000+</span>
+        <p data-i18n="statsFreelancers">Active Freelancers</p>
+      </div>
+      <div class="stat-item">
+        <span>1,000+</span>
+        <p data-i18n="statsDaily">New Projects Daily</p>
+      </div>
+      <div class="stat-item">
+        <span>95%</span>
+        <p data-i18n="statsSatisfaction">Satisfied Clients</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="#about" data-i18n="footerAbout">About Us</a> |
+      <a href="#terms" data-i18n="footerTerms">Terms of Use</a> |
+      <a href="#support" data-i18n="footerSupport">Support</a> |
+      <a href="#privacy" data-i18n="footerPrivacy">Privacy Policy</a>
+    </p>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+    </div>
+    <p data-i18n="footerCopyright">2025 FreelancePro. All rights reserved.</p>
+  </footer>
+</body>
+<script src="js/main.js"></script>
+
+</html>
